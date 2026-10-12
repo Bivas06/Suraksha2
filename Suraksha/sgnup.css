@@ -1,0 +1,129 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 100px;
+    padding: 20px;
+    background-image: url(image/backSI.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #0a0a3a;
+}
+
+.container{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 36px 30px;
+    border-radius: 28px;
+    background: #cbd2dc;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    position: relative;
+    float: right;
+  
+.subtitle{
+    color:rgb(139, 0, 0);
+    text-align:center;
+}
+
+.create{
+    color: rgb(7, 7, 98);
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a4a;
+}
+
+.field input {
+  width: 90%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  background: rgba(255, 255, 255, 0.65);
+  font-family: inherit;
+  font-size: 14px;
+  color: #0a0a3a;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.field input::placeholder {
+  color: #8a90a6;
+}
+
+.field input:focus {
+  background: #ffffff;
+  border-color: #3a2fd6;
+  box-shadow: 0 0 0 3px rgba(58, 47, 214, 0.18);
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 22px;
+  font-size: 13px;
+  color: #4a4f66;
+  cursor: pointer;
+}
+
+.terms input {
+  width: 17px;
+  height: 17px;
+  accent-color: #3a2fd6;
+}
+
+.terms a {
+  color: #d62b3a;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+.signup-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(90deg, #14126b 0%, #3a2fd6 55%, #e0283a 100%);
+  transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
+}
+
+.signup-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(58, 47, 214, 0.35);
+}
+
+.switch {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  color: #4a4f66;
+}
+
+.switch a {
+  color: #d62b3a;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}

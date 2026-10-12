@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Back | Sign In</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --accent: #7779f7;
+  --ink: #22263d;
+  --muted: #858ba3;
+  --line: rgba(133, 145, 195, .19);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: #f8faff;
+  overflow-x: hidden;
+}
+
+/* ===== LIGHT ANIMATED BACKGROUND ===== */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  perspective: 1000px;
+  background: linear-gradient(135deg, #fbfcff, #f1f4ff, #fffaff);
+}
+
+#particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glow {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  min-width: 300px;
+  min-height: 300px;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: .55;
+  animation: glowMove 15s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.glow.blue {
+  left: -18%;
+  top: -20%;
+  background: radial-gradient(circle, #c4d6ff, #e6ecff 50%, transparent 72%);
+}
+
+.glow.purple {
+  right: -20%;
+  bottom: -25%;
+  background: radial-gradient(circle, #e0caff, #f3eaff 50%, transparent 72%);
+  animation-delay: -7s;
+}
+
+.glow.cyan {
+  right: 25%;
+  top: -35%;
+  background: radial-gradient(circle, #c9f0ff, transparent 70%);
+  opacity: .4;
+  animation-delay: -4s;
+}
+
+@keyframes glowMove {
+  from { transform: translate3d(-2%, 0, 0) scale(1); }
+  to { transform: translate3d(8%, 8%, 0) scale(1.13); }
+}
+
+/* Floating glass objects */
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.95);
+  background:
+    radial-gradient(circle at 28% 22%,
+      rgba(255,255,255,.98),
+      rgba(213,223,255,.56) 24%,
+      rgba(178,165,255,.16) 56%,
+      rgba(255,255,255,.28) 75%);
+  box-shadow:
+    inset -12px -18px 35px rgba(129,132,230,.12),
+    inset 10px 10px 30px rgba(255,255,255,.9),
+    0 25px 75px rgba(125,139,205,.14);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.8);
+  transform: rotate(-35deg) scaleY(.42);
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  width: 35%;
+  height: 20%;
+  top: 18%;
+  left: 17%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.85);
+  filter: blur(9px);
+}
+
+.orb-1 {
+  width: 210px;
+  height: 210px;
+  top: 10%;
+  left: 9%;
+  animation: float1 10s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 115px;
+  height: 115px;
+  bottom: 13%;
+  left: 32%;
+  animation: float2 9s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 280px;
+  height: 280px;
+  right: 7%;
+  bottom: 7%;
+  animation: float3 12s ease-in-out infinite;
+}
+
+.orb-4 {
+  width: 66px;
+  height: 66px;
+  top: 16%;
+  right: 27%;
+  animation: float2 7s ease-in-out infinite reverse;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(18px, -30px, 40px) rotate(12deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-20px, -25px, 30px); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(-22px, -32px, 50px) rotate(-10deg); }
+}
+
+/* Elegant flowing glass rings */
+
+.ring {
+  position: absolute;
+  width: 650px;
+  height: 220px;
+  border: 1px solid rgba(137,151,230,.19);
+  border-radius: 50%;
+  transform: rotate(-32deg);
+  box-shadow:
+    0 0 40px rgba(160,170,255,.05),
+    inset 0 0 35px rgba(183,170,255,.06);
+  animation: ringFloat 15s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.ring-1 {
+  top: 22%;
+  left: -17%;
+}
+
+.ring-2 {
+  bottom: 8%;
+  right: -17%;
+  width: 750px;
+  height: 260px;
+  transform: rotate(30deg);
+  animation-delay: -6s;
+}
+
+@keyframes ringFloat {
+  from { margin-left: -10px; margin-top: -8px; }
+  to { margin-left: 25px; margin-top: 22px; }
+}
+
+/* ===== LOGIN CARD ===== */
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 18px;
+}
+
+.container {
+  position: relative;
+  width: min(430px, 100%);
+  padding: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 27px;
+  background: rgba(255,255,255,.68);
+  box-shadow:
+    0 35px 100px rgba(91,105,166,.13),
+    0 5px 20px rgba(91,105,166,.05),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  animation: cardEnter .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 76%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+h2 {
+  font-size: 35px;
+  line-height: 1.2;
+  letter-spacing: -1.7px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+h2 span {
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* Form fields */
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #505873;
+  margin: 17px 0 9px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 49px;
+  padding: 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,.76);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+}
+
+input::placeholder {
+  color: #a1a8bd;
+}
+
+input:focus {
+  border-color: #9998ff;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(119,121,247,.1);
+}
+
+/* Forgot password */
+
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  margin: 13px 0 21px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgot:hover,
+.switch a:hover {
+  color: #5555d8;
+}
+
+/* Sign in button */
+
+.signin-btn {
+  width: 100%;
+  min-height: 49px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #7779f7, #9584f8, #ac8cf8);
+  background-size: 200% 100%;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 9px 25px rgba(119,121,247,.24);
+  transition: transform .25s, box-shadow .25s, background-position .4s;
+}
+
+.signin-btn:hover {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 14px 30px rgba(119,121,247,.32);
+}
+
+.signin-btn:active {
+  transform: scale(.985);
+}
+
+/* Divider */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 26px 0 19px;
+  color: #969cb0;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Social buttons */
+
+.socials {
+  display: flex;
+  gap: 11px;
+}
+
+.social {
+  flex: 1;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,.7);
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+
+.social:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(91,105,166,.11);
+}
+
+.social svg {
+  width: 19px;
+  height: 19px;
+}
+
+.switch {
+  margin-top: 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.switch a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 29px 24px;
+    border-radius: 23px;
+  }
+
+  .orb-1 {
+    width: 125px;
+    height: 125px;
+    left: -20px;
+  }
+
+  .orb-2 {
+    left: 5%;
+  }
+
+  .orb-3 {
+    width: 160px;
+    height: 160px;
+    right: -25px;
+  }
+
+  .ring {
+    width: 400px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background scene -->
+<div class="background" aria-hidden="true">
+  <div class="glow blue"></div>
+  <div class="glow purple"></div>
+  <div class="glow cyan"></div>
+
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+
+  <canvas id="particles"></canvas>
+</div>
+
+<!-- Login page -->
+<main class="page">
+  <section class="container" id="loginCard">
+
+    <h2>Welcome <span>Back</span></h2>
+    <p class="subtitle">Sign in to continue</p>
+
+    <form id="ContactForm" onsubmit="submitForm(event)">
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+        required
+      >
+
+      <a href="resetpw.html" class="forgot">Forgot Password?</a>
+
+      <button type="submit" class="signin-btn">Sign In →</button>
+    </form>
+
+    <div class="divider"><span>or continue with</span></div>
+
+    <div class="socials">
+
+      <!-- Google -->
+      <button type="button" class="social" aria-label="Continue with Google">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+      </button>
+
+      <!-- GitHub -->
+      <button type="button" class="social" aria-label="Continue with GitHub">
+        <svg viewBox="0 0 24 24" fill="#24292f" aria-hidden="true">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+        </svg>
+      </button>
+
+      <!-- LinkedIn -->
+      <button type="button" class="social" aria-label="Continue with LinkedIn">
+        <svg viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <p class="switch">
+      Don't have an account?
+      <a href="sgnup.html">Sign Up</a>
+    </p>
+
+  </section>
+</main>
+
+<script>
+/* Subtle interactive particle network */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+let width, height, particles = [];
+let mouse = { x: -1000, y: -1000 };
+let frame = 0;
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(85, Math.floor(width * height / 14000));
+
+  particles = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    vx: (Math.random() - 0.5) * 0.22,
+    vy: (Math.random() - 0.5) * 0.22,
+    r: Math.random() * 1.7 + 0.7
+  }));
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  for (let i = 0; i < particles.length; i++) {
+    const p = particles[i];
+
+    if (!reducedMotion) {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const distance = Math.hypot(dx, dy);
+
+      if (distance < 150 && distance > 0) {
+        p.x -= dx / distance * 0.12;
+        p.y -= dy / distance * 0.12;
+      }
+    }
+
+    for (let j = i + 1; j < particles.length; j++) {
+      const q = particles[j];
+      const distance = Math.hypot(p.x - q.x, p.y - q.y);
+
+      if (distance < 115) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle =
+          `rgba(135,145,210,${(1 - distance / 115) * 0.17})`;
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+      }
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(125,137,211,0.48)";
+    ctx.fill();
+  }
+
+  frame++;
+
+  if (!reducedMotion) {
+    requestAnimationFrame(draw);
+  }
+}
+
+window.addEventListener("pointermove", event => {
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
+});
+
+window.addEventListener("pointerleave", () => {
+  mouse.x = -1000;
+  mouse.y = -1000;
+});
+
+window.addEventListener("resize", resize);
+
+resize();
+draw();
+</script>
+
+<!-- Keeps your existing form handler -->
+<script src="scr.js"></script>
+
+</body>
+</html>

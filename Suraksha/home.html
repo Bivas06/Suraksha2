@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#070812" name="theme-color"/>
+  <title>
+   SURAKSHA — Safety, reimagined
+  </title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root {
+  --bg:#010204;
+  --panel:rgba(5,7,15,.78);
+  --line:rgba(193,196,255,.15);
+  --text:#f5f5ff;
+  --muted:#a3a6c3;
+  --blue:#67d9ff;
+  --violet:#b38aff;
+  --font:'DM Sans',Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --display:'Space Grotesk',var(--font);
+}
+* {
+  box-sizing:border-box
+}
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:100px
+}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:17px;
+  overflow-x:hidden
+}
+a {
+  color:inherit;
+  text-decoration:none
+}
+button {
+  font:inherit
+}
+::selection {
+  background:#8e75ff;
+  color:#fff
+}
+.site-bg {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  overflow:hidden;
+  background:
+ radial-gradient(ellipse at 48% 18%,rgba(5, 4, 12, 0.105),transparent 33%),
+ radial-gradient(ellipse at 17% 32%,rgba(28,88,147,.095),transparent 34%),
+ radial-gradient(ellipse at 78% 37%,rgba(112,57,159,.10),transparent 35%),
+ radial-gradient(ellipse at 50% 72%,rgba(25,61,118,.06),transparent 38%),
+ #010204
+}
+.site-bg:before {
+  content:"";
+  position:absolute;
+  inset:-10%;
+  opacity:.98;
+  background-image:
+ radial-gradient(1px 1px at 3% 9%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 8% 47%,#d8e8ff 98%,transparent),
+ radial-gradient(2px 2px at 12% 76%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 17% 22%,#d7c9ff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 22% 59%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 28% 11%,#e6e4ff 98%,transparent),
+ radial-gradient(1px 1px at 34% 38%,#fff 98%,transparent),
+ radial-gradient(2px 2px at 39% 82%,#c9dfff 98%,transparent),
+ radial-gradient(1px 1px at 45% 19%,#e1dcff 98%,transparent),
+ radial-gradient(1px 1px at 51% 63%,#fff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 57% 31%,#d8ccff 98%,transparent),
+ radial-gradient(1px 1px at 62% 88%,#fff 98%,transparent),
+ radial-gradient(2px 2px at 68% 12%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 73% 48%,#d7e6ff 98%,transparent),
+ radial-gradient(1px 1px at 79% 27%,#fff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 84% 71%,#e2d8ff 98%,transparent),
+ radial-gradient(1px 1px at 91% 18%,#fff 98%,transparent),
+ radial-gradient(2px 2px at 96% 56%,#f8f6ff 98%,transparent),
+ radial-gradient(1px 1px at 94% 91%,#d9e7ff 98%,transparent),
+ radial-gradient(1px 1px at 6% 92%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 31% 95%,#d4d2e8 98%,transparent),
+ radial-gradient(1px 1px at 48% 45%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 65% 54%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 88% 39%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 2% 31%,#dbe8ff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 11% 13%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 15% 88%,#d7dfff 98%,transparent),
+ radial-gradient(1px 1px at 24% 35%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 26% 91%,#dbe8ff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 33% 67%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 37% 7%,#e8e1ff 98%,transparent),
+ radial-gradient(1px 1px at 42% 51%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 47% 94%,#dbe8ff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 54% 8%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 59% 76%,#e0dcff 98%,transparent),
+ radial-gradient(1px 1px at 64% 36%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 70% 92%,#dce8ff 98%,transparent),
+ radial-gradient(1px 1px at 76% 8%,#fff 98%,transparent),
+ radial-gradient(1.5px 1.5px at 82% 51%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 87% 95%,#e1dcff 98%,transparent),
+ radial-gradient(1px 1px at 93% 33%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 98% 79%,#dbe8ff 98%,transparent);
+  background-size:100% 100%
+}
+.site-bg:after {
+  content:"";
+  position:absolute;
+  width:min(90vw,1100px);
+  aspect-ratio:1;
+  left:50%;
+  top:-360px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  border:1px solid rgba(174,164,255,.09);
+  box-shadow:0 0 0 55px rgba(174,164,255,.025),0 0 0 120px rgba(105,170,255,.018),0 0 0 190px rgba(174,164,255,.014),0 0 0 270px rgba(105,170,255,.01)
+}
+@keyframes starDrift {
+  from {
+    transform:translate3d(0,0,0)
+  }
+  to {
+    transform:translate3d(-1.5%,1%,0)
+  }
+}
+.site-bg:before {
+  animation:starDrift 100s linear infinite
+}
+@media(prefers-reduced-motion:reduce) {
+  .site-bg:before {
+    animation:none
+  }
+}
+.wrap {
+  width:min(1240px,calc(100% - 48px));
+  margin-inline:auto
+}
+.nav-wrap {
+  position:sticky;
+  top:0;
+  z-index:50;
+  padding:15px 0 0
+}
+.nav {
+  width:min(1240px,calc(100% - 48px));
+  margin:auto;
+  min-height:68px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  background:rgba(2,3,9,.78);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:0 12px 40px rgba(0,0,0,.14)
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-family:var(--display);
+  font-weight:700;
+  letter-spacing:.13em;
+  font-size:17px
+}
+.brand-icon {
+  width:35px;
+  height:35px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#69dcff,#8d78ff 80%);
+  box-shadow:0 0 28px #6e8bff35;
+  color:#080b18
+}
+.brand-icon svg {
+  width:20px;
+  height:20px
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:clamp(18px,3vw,36px);
+  color:#c6c8df;
+  font-size:15px
+}
+.nav-links a {
+  transition:color .2s
+}
+.nav-links a:hover {
+  color:#fff
+}
+.nav-actions {
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:13px 19px;
+  font-size:15px;
+  font-weight:700;
+  transition:transform .2s,border-color .2s,background .2s;
+  cursor:pointer
+}
+.btn:hover {
+  transform:translateY(-2px)
+}
+.btn-primary {
+  color:#090b19;
+  border:0;
+  background:linear-gradient(110deg,#77e1ff,#b59aff);
+  box-shadow:0 8px 30px rgba(111,151,255,.2)
+}
+.btn-primary:hover {
+  box-shadow:0 12px 34px rgba(111,151,255,.32)
+}
+.btn-ghost {
+  background:rgba(255,255,255,.035);
+  color:#f5f5ff
+}
+.btn-ghost:hover {
+  background:rgba(255,255,255,.08);
+  border-color:#7478aa
+}
+.menu-toggle {
+  display:none;
+  border:1px solid var(--line);
+  background:#17182c;
+  color:white;
+  border-radius:10px;
+  padding:9px
+}
+.hero {
+  position:relative;
+  padding:105px 0 76px;
+  text-align:center;
+  isolation:isolate
+}
+.hero:before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:min(100%,1050px);
+  height:570px;
+  background:radial-gradient(ellipse at 50% 34%,rgba(93,91,190,.19),transparent 54%),radial-gradient(ellipse at 20% 55%,rgba(25,102,160,.08),transparent 42%);
+  pointer-events:none
+}
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid rgba(173,166,255,.23);
+  background:rgba(7,8,17,.72);
+  padding:8px 13px;
+  border-radius:999px;
+  color:#d5d3ff;
+  font-size:13px;
+  letter-spacing:.15em;
+  text-transform:uppercase
+}
+.eyebrow-dot {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#7de3ff;
+  box-shadow:0 0 13px #7de3ff
+}
+h1,h2,h3,p {
+  margin-top:0
+}
+.hero h1 {
+  font-family:var(--display);
+  font-size:clamp(48px,7.5vw,92px);
+  line-height:.99;
+  letter-spacing:-.075em;
+  font-weight:600;
+  max-width:1000px;
+  margin:27px auto 22px;
+  text-wrap:balance
+}
+.gradient-text {
+  background:linear-gradient(100deg,#f7f7ff 12%,#b9c5ff 48%,#8ce6ff 72%,#c6a4ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent
+}
+.hero-copy {
+  max-width:570px;
+  margin:0 auto;
+  color:#aeb2cf;
+  font-size:18px;
+  line-height:1.8;
+  text-wrap:pretty
+}
+.hero-actions {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px
+}
+.hero-note {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:#777d9e;
+  font-size:13px;
+  margin-top:18px
+}
+.hero-note svg {
+  color:#81e6c0
+}
+.visual-stage {
+  width:min(930px,100%);
+  margin:60px auto 0;
+  position:relative;
+  text-align:left
+}
+.stage-glow {
+  position:absolute;
+  inset:10% 10% -8%;
+  z-index:-1;
+  background:radial-gradient(ellipse,rgba(97,99,225,.18),transparent 68%);
+  filter:blur(22px)
+}
+.stage-card {
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(179,185,255,.2);
+  border-radius:24px;
+  background:linear-gradient(140deg,rgba(8,10,20,.94),rgba(3,5,12,.95));
+  box-shadow:0 30px 90px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.07);
+  padding:22px
+}
+.stage-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.09)
+}
+.stage-label {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  color:#dfe3ff
+}
+.stage-mini-icon {
+  width:30px;
+  height:30px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:#27274a;
+  color:#8ce4ff
+}
+.status {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#a7edda;
+  font-size:12px;
+  padding:7px 10px;
+  border:1px solid rgba(106,224,190,.18);
+  border-radius:999px;
+  background:rgba(63,170,140,.08)
+}
+.status:before {
+  content:"";
+  width:5px;
+  height:5px;
+  background:#70e5b7;
+  border-radius:50%
+}
+.stage-grid {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:15px;
+  padding-top:18px
+}
+.stage-feature {
+  min-height:190px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  padding:22px;
+  background:radial-gradient(ellipse at 100% 0,rgba(111,96,222,.18),transparent 55%),rgba(9,12,28,.48)
+}
+.stage-feature h3 {
+  font-family:var(--display);
+  font-size:27px;
+  letter-spacing:-.04em;
+  margin:14px 0 8px
+}
+.stage-feature p {
+  font-size:14px;
+  line-height:1.7;
+  color:#a9afcc;
+  max-width:330px;
+  margin-bottom:18px
+}
+.stage-feature .small-link {
+  color:#8de2ff;
+  font-size:14px;
+  font-weight:700
+}
+.feature-icon {
+  width:43px;
+  height:43px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  color:#8de5ff;
+  background:linear-gradient(145deg,#25365b,#242343);
+  border:1px solid #53608b55
+}
+.feature-icon svg {
+  width:22px;
+  height:22px
+}
+.stage-side {
+  display:grid;
+  gap:15px
+}
+.mini-feature {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:17px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(10,13,28,.52);
+  min-height:85px
+}
+.mini-feature .feature-icon {
+  width:39px;
+  height:39px;
+  flex-shrink:0
+}
+.mini-feature h4 {
+  font-size:15px;
+  margin:0 0 5px
+}
+.mini-feature p {
+  font-size:13px;
+  line-height:1.5;
+  color:#969dbb;
+  margin:0
+}
+.section {
+  padding:88px 0
+}
+.section-head {
+  max-width:650px;
+  margin:0 auto 35px;
+  text-align:center
+}
+.kicker {
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#91dfff;
+  font-weight:700;
+  margin-bottom:14px
+}
+.section-head h2 {
+  font-family:var(--display);
+  font-size:clamp(30px,4vw,46px);
+  letter-spacing:-.055em;
+  line-height:1.1;
+  margin-bottom:14px
+}
+.section-head p {
+  font-size:16px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:0
+}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px
+}
+.card {
+  position:relative;
+  overflow:hidden;
+  min-height:235px;
+  padding:23px;
+  border:1px solid rgba(171,177,237,.15);
+  border-radius:20px;
+  background:linear-gradient(150deg,rgba(7,9,17,.86),rgba(3,4,9,.88));
+  transition:transform .24s,border-color .24s,background .24s
+}
+.card:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 100% 0,rgba(110,117,255,.11),transparent 46%);
+  opacity:.7;
+  pointer-events:none
+}
+.card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(112,218,255,.42);
+  background:linear-gradient(150deg,rgba(31,34,64,.9),rgba(13,16,34,.9))
+}
+.card>* {
+  position:relative
+}
+.card .feature-icon {
+  margin-bottom:29px
+}
+.card h3 {
+  font-family:var(--display);
+  font-size:21px;
+  letter-spacing:-.035em;
+  margin-bottom:10px
+}
+.card p {
+  font-size:14px;
+  line-height:1.75;
+  color:#a4a9c6;
+  margin-bottom:20px
+}
+.card-link {
+  font-size:14px;
+  font-weight:700;
+  color:#8edfff;
+  display:inline-flex;
+  gap:8px;
+  align-items:center
+}
+.card-link span {
+  transition:transform .2s
+}
+.card-link:hover span {
+  transform:translateX(4px)
+}
+.manifesto {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  align-items:center;
+  gap:60px;
+  padding:42px;
+  border:1px solid rgba(178,170,255,.16);
+  border-radius:26px;
+  background:radial-gradient(ellipse at 0 0,rgba(74,93,180,.17),transparent 45%),linear-gradient(125deg,rgba(19,22,45,.88),rgba(13,14,29,.9))
+}
+.manifesto h2 {
+  font-family:var(--display);
+  font-size:clamp(31px,4vw,48px);
+  line-height:1.05;
+  letter-spacing:-.06em;
+  margin:0
+}
+.manifesto p {
+  color:#aab0cc;
+  line-height:1.8;
+  font-size:16px;
+  margin:0 0 20px
+}
+.principles {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+.principle {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;
+  background:rgba(255,255,255,.025);
+  font-size:14px;
+  color:#dfe2fa
+}
+.principle svg {
+  color:#8ce2ff;
+  flex-shrink:0
+}
+.cta {
+  padding:15px 0 85px
+}
+.cta-inner {
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:58px 25px;
+  border:1px solid rgba(175,169,255,.22);
+  border-radius:26px;
+  background:radial-gradient(ellipse at 50% 0,rgba(100,94,203,.28),transparent 62%),linear-gradient(130deg,rgba(24,27,53,.94),rgba(13,14,30,.94))
+}
+.cta-inner:after {
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-210px;
+  transform:translateX(-50%);
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  border:1px solid rgba(173,169,255,.1);
+  box-shadow:0 0 0 45px rgba(173,169,255,.025),0 0 0 95px rgba(173,169,255,.02);
+  pointer-events:none
+}
+.cta-inner>* {
+  position:relative
+}
+.cta-inner h2 {
+  font-family:var(--display);
+  font-size:clamp(32px,4vw,48px);
+  letter-spacing:-.06em;
+  margin-bottom:13px
+}
+.cta-inner p {
+  color:#adb2ce;
+  max-width:500px;
+  margin:0 auto 24px;
+  line-height:1.8;
+  font-size:16px
+}
+.footer {
+  border-top:1px solid rgba(255,255,255,.09);
+  padding:25px 0 32px;
+  color:#8187a6;
+  font-size:13px
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px
+}
+.footer .brand {
+  color:#e8eaff;
+  font-size:14px
+}
+.footer .brand-icon {
+  width:28px;
+  height:28px;
+  border-radius:9px
+}
+.footer-links {
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap
+}
+.footer-links a:hover {
+  color:#fff
+}
+.mobile-menu {
+  display:none
+}
+@media(max-width:900px) {
+  .nav-links {
+    gap:16px
+  }
+  .nav-links a:nth-child(3) {
+    display:none
+  }
+  .cards {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .manifesto {
+    gap:30px;
+    padding:30px
+  }
+  .hero {
+    padding-top:85px
+  }
+}
+@media(max-width:640px) {
+  .wrap,.nav {
+    width:calc(100% - 28px)
+  }
+  .nav-wrap {
+    padding-top:9px
+  }
+  .nav {
+    min-height:58px;
+    padding:0 13px;
+    border-radius:15px
+  }
+  .brand {
+    font-size:15px;
+    gap:8px
+  }
+  .brand-icon {
+    width:31px;
+    height:31px
+  }
+  .nav-links,.nav-actions {
+    display:none
+  }
+  .menu-toggle {
+    display:inline-flex
+  }
+  .mobile-menu {
+    position:absolute;
+    top:calc(100% + 8px);
+    left:14px;
+    right:14px;
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:rgba(10,11,26,.96);
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 50px #0006
+  }
+  .mobile-menu.open {
+    display:grid;
+    gap:4px
+  }
+  .mobile-menu a {
+    padding:12px;
+    border-radius:10px;
+    color:#d9dcf2;
+    font-size:16px
+  }
+  .mobile-menu a:hover {
+    background:#ffffff0d
+  }
+  .hero {
+    padding:77px 0 46px
+  }
+  .hero h1 {
+    font-size:clamp(43px,13vw,66px);
+    margin-top:22px;
+    letter-spacing:-.07em
+  }
+  .hero-copy {
+    font-size:16px;
+    padding:0 5px
+  }
+  .hero-actions {
+    flex-direction:column;
+    align-items:stretch;
+    margin:25px auto 0;
+    max-width:340px
+  }
+  .hero-actions .btn {
+    width:100%
+  }
+  .visual-stage {
+    margin-top:40px
+  }
+  .stage-card {
+    padding:13px;
+    border-radius:19px
+  }
+  .stage-top {
+    align-items:flex-start
+  }
+  .stage-grid {
+    grid-template-columns:1fr
+  }
+  .stage-feature {
+    min-height:0;
+    padding:18px
+  }
+  .stage-feature h3 {
+    font-size:24px
+  }
+  .stage-side {
+    grid-template-columns:1fr 1fr;
+    gap:9px
+  }
+  .mini-feature {
+    align-items:flex-start;
+    flex-direction:column;
+    padding:13px;
+    gap:10px;
+    min-height:130px
+  }
+  .mini-feature h4 {
+    font-size:14px
+  }
+  .mini-feature p {
+    font-size:12px
+  }
+  .section {
+    padding:64px 0
+  }
+  .section-head {
+    margin-bottom:25px
+  }
+  .cards {
+    gap:10px
+  }
+  .card {
+    padding:16px;
+    min-height:220px;
+    border-radius:16px
+  }
+  .card .feature-icon {
+    margin-bottom:20px
+  }
+  .card h3 {
+    font-size:18px
+  }
+  .card p {
+    font-size:13px
+  }
+  .manifesto {
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:23px;
+    border-radius:20px
+  }
+  .principles {
+    gap:8px
+  }
+  .principle {
+    font-size:13px;
+    padding:11px
+  }
+  .cta {
+    padding-bottom:55px
+  }
+  .cta-inner {
+    padding:43px 20px;
+    border-radius:20px
+  }
+  .footer-inner {
+    align-items:flex-start;
+    flex-direction:column
+  }
+  .footer-links {
+    gap:15px
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto
+  }
+  .btn,.card,.card-link span {
+    transition:none
+  }
+}
+  
+
+  /* Readability pass: keep secondary text comfortably legible */
+  body { font-size: 18px; }
+  p, li, label, input, textarea, select { font-size: 17px; }
+  .nav-links, .nav-links a, .mobile-menu a,
+  .btn, button, .card-link, .small-link { font-size: 16px; }
+  .eyebrow, .kicker, .hero-note, .status,
+  .footer, .footer-links, .stage-label, .principle { font-size: 14px; }
+  .card p, .stage-feature p, .mini-feature p,
+  .section-head p, .manifesto p, .cta-inner p { font-size: 16px; }
+  .mini-feature h4 { font-size: 15px; }
+  /* Some helper labels use inline 10–13px sizes; override those too. */
+  span[style*="font-size"] { font-size: 14px !important; }
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    p, li, label, input, textarea, select { font-size: 16px; }
+    .nav-links, .nav-links a, .mobile-menu a,
+    .btn, button, .card-link, .small-link { font-size: 15px; }
+    .eyebrow, .kicker, .hero-note, .status,
+    .footer, .footer-links, .stage-label, .principle { font-size: 14px; }
+    .card p, .stage-feature p, .mini-feature p,
+    .section-head p, .manifesto p, .cta-inner p { font-size: 15px; }
+    span[style*="font-size"] { font-size: 14px !important; }
+  }
+
+</style>
+ </head>
+ <body>
+  <div aria-hidden="true" class="site-bg">
+  </div>
+  <header class="nav-wrap">
+   <nav aria-label="Main navigation" class="nav">
+    <a aria-label="Suraksha home" class="brand" href="#top">
+     <span class="brand-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+       <path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z">
+       </path>
+       <path d="m8.5 12 2.2 2.2 4.8-5">
+       </path>
+      </svg>
+     </span>
+     <span>
+      SURAKSHA
+     </span>
+    </a>
+    <div class="nav-links">
+     <a href="home.html">
+      Home
+     </a>
+     <a href="#features">
+      Features
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="discover.html">
+      Discover
+     </a>
+     <a href="cont.html">
+      Contact
+     </a>
+    </div>
+    <div class="nav-actions">
+     <a class="btn btn-primary" href="tool.html">
+      Emergency tools
+      <span>
+       ↗
+      </span>
+     </a>
+    </div>
+    <button aria-expanded="false" aria-label="Open navigation" class="menu-toggle" id="menuToggle">
+     ☰
+    </button>
+   </nav>
+   <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">
+     Home
+    </a>
+    <a href="#features">
+     Features
+    </a>
+    <a href="about.html">
+     About
+    </a>
+    <a href="discover.html">
+     Discover
+    </a>
+    <a href="tool.html">
+     Emergency tools ↗
+    </a>
+   </div>
+  </header>
+  <main id="top">
+   <section class="hero" id="home">
+    <div class="wrap">
+     <div class="eyebrow">
+      <span class="eyebrow-dot">
+      </span>
+      A smarter way to stay prepared
+     </div>
+     <h1>
+      Feel safer.
+      <br/>
+      <span class="gradient-text">
+       Move with confidence.
+      </span>
+     </h1>
+     <p class="hero-copy">
+      A calmer, smarter space to find help, build awareness, and feel prepared for the unexpected. Safety should be for everyone.
+     </p>
+     <div class="hero-actions">
+      <a class="btn btn-primary" href="tool.html">
+       Explore emergency tools
+       <span>
+        ↗
+       </span>
+      </a>
+      <a class="btn btn-ghost" href="#discover">
+       Discover Suraksha
+       <span>
+        ↓
+       </span>
+      </a>
+     </div>
+     <div class="hero-note">
+      <path d="m5 12 4 4L19 6">
+      </path>
+      Designed for everyday awareness and readiness
+     </div>
+     <div class="visual-stage" id="emergency">
+      <div class="stage-glow">
+      </div>
+      <div class="stage-card">
+       <div class="stage-top">
+        <div class="stage-label">
+         <span class="stage-mini-icon">
+          ✳
+         </span>
+         <span>
+          <strong>
+           YOUR SAFETY SPACE
+          </strong>
+          <br/>
+          <span style="color:#8f96b7;font-size:12px">
+           Useful tools. Clear next steps.
+          </span>
+         </span>
+        </div>
+        <span class="status">
+         Preparedness hub
+        </span>
+       </div>
+       <div class="stage-grid">
+        <article class="stage-feature">
+         <div class="feature-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+           <path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z">
+           </path>
+           <path d="M12 8v5m0 3h.01">
+           </path>
+          </svg>
+         </div>
+         <h3>
+          Know what to do next.
+         </h3>
+         <p>
+          Find essential safety information and explore practical steps for situations where being prepared matters.
+         </p>
+         <a class="small-link" href="tool.html">
+          Explore safety tools  ↗
+         </a>
+        </article>
+        <div class="stage-side">
+         <a class="mini-feature" href="discover.html">
+          <span class="feature-icon">
+           <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z">
+            </path>
+            <circle cx="12" cy="10" r="2.5">
+            </circle>
+           </svg>
+          </span>
+          <span>
+           <h4>
+            Find useful resources
+           </h4>
+           <p>
+            Explore guidance and helpful places.
+           </p>
+          </span>
+         </a>
+         <a class="mini-feature" href="#about">
+          <span class="feature-icon">
+           <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+            <path d="M12 3 14.8 8.8 21 9.7l-4.5 4.4 1.1 6.2L12 17.4l-5.6 2.9 1.1-6.2L3 9.7l6.2-.9L12 3Z">
+            </path>
+           </svg>
+          </span>
+          <span>
+           <h4>
+            Build awareness
+           </h4>
+           <p>
+            Learn small steps that can matter.
+           </p>
+          </span>
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="features">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       One platform. Many ways to prepare.
+      </div>
+      <h2>
+       Safety that fits
+       <span class="gradient-text">
+        real life.
+       </span>
+      </h2>
+      <p>
+       Thoughtful tools and practical information, organised to help you find what you need without the noise.
+      </p>
+     </div>
+     <div class="cards">
+      <article class="card">
+       <div class="feature-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+         <path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z">
+         </path>
+         <path d="M12 8v5m0 3h.01">
+         </path>
+        </svg>
+       </div>
+       <h3>
+        Emergency access
+       </h3>
+       <p>
+        Keep important emergency options easy to locate when every moment feels important.
+       </p>
+       <a class="card-link" href="tool.html">
+        Explore tools
+        <span>
+         ↗
+        </span>
+       </a>
+      </article>
+      <article class="card" id="discover">
+       <div class="feature-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+         <circle cx="12" cy="12" r="9">
+         </circle>
+         <path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z">
+         </path>
+        </svg>
+       </div>
+       <h3>
+        Discover
+       </h3>
+       <p>
+        Explore safety resources in map, Find your exact location.
+       </p>
+       <a class="card-link" href="discover.html">
+        Start exploring
+        <span>
+         ↗
+        </span>
+       </a>
+      </article>
+      <article class="card">
+       <div class="feature-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20">
+         </path>
+         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z">
+         </path>
+         <path d="M8 7h8m-8 4h6">
+         </path>
+        </svg>
+       </div>
+       <h3>
+        Learn &amp; prepare
+       </h3>
+       <p>
+        Build awareness with approachable guides and practical preparedness tips.
+       </p>
+       <a class="card-link" href="about.html">
+        Learn more
+        <span>
+         ↗
+        </span>
+       </a>
+      </article>
+      <article class="card">
+       <div class="feature-icon">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+         <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2">
+         </path>
+         <circle cx="10" cy="7" r="4">
+         </circle>
+         <path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75">
+         </path>
+        </svg>
+       </div>
+       <h3>
+        Community
+       </h3>
+       <p>
+        Encourage shared awareness and help make safety knowledge more accessible to everyone.
+       </p>
+       <a class="card-link" href="">
+        Our approach
+        <span>
+         ↗
+        </span>
+       </a>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="about">
+    <div class="wrap">
+     <div class="manifesto">
+      <div>
+       <div class="kicker">
+        The Suraksha mindset
+       </div>
+       <h2>
+        Confidence comes from being
+        <span class="gradient-text">
+         prepared.
+        </span>
+       </h2>
+      </div>
+      <div>
+       <p>
+        Suraksha is built around a simple idea: safety information should be clear, approachable, and useful to everyone. Not fear. Not clutter. Just better access to knowledge and the tools that help people make informed decisions.
+       </p>
+       <div class="principles">
+        <div class="principle">
+         <span>
+         </span>
+         For everyone
+        </div>
+        <div class="principle">
+         <span>
+         </span>
+         Clear by design
+        </div>
+        <div class="principle">
+         <span>
+         </span>
+         Awareness first
+        </div>
+        <div class="principle">
+         <span>
+         </span>
+         Ready for real life
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="cta" id="get-started">
+    <div class="wrap">
+     <div class="cta-inner">
+      <div class="kicker">
+       Start with awareness
+      </div>
+      <h2>
+       A little more prepared.
+       <br/>
+       <span class="gradient-text">
+        A lot more confident.
+       </span>
+      </h2>
+      <p>
+       Explore Suraksha and discover practical resources designed to make safety knowledge easier to access.
+      </p>
+      <a class="btn btn-primary" href="about.html">
+       Explore Suraksha
+       <span>
+        ↗
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="wrap footer-inner">
+    <a class="brand" href="#top">
+     <span class="brand-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+       <path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z">
+       </path>
+       <path d="m8.5 12 2.2 2.2 4.8-5">
+       </path>
+      </svg>
+     </span>
+     <span>
+      SURAKSHA
+     </span>
+    </a>
+    <span>
+     Safety for everyone, everywhere.
+    </span>
+    <div class="footer-links">
+     <a href="home.html">
+      Home
+     </a>
+     <a href="#features">
+      Features
+     </a>
+     <a href="about.html">
+      About
+     </a>
+     <a href="cont.html">
+      Contact
+     </a>
+    </div>
+    
+   </div>
+  </footer>
+  <script>
+   const toggle = document.getElementById('menuToggle');
+const menu = document.getElementById('mobileMenu');
+toggle.addEventListener('click', () =>  {
+  const isOpen = menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+  toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  toggle.textContent = isOpen ? '✕' : '☰';
+});
+menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () =>  {
+  menu.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.textContent = '☰';
+}));
+  </script>
+ </body>
+</html>
+
